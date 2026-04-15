@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, MessageFlags } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -71,7 +71,7 @@ client.on('interactionCreate', async (interaction) => {
             const reversed = target.content.split('').reverse().join('');
             await interaction.reply({
                 content: reversed,
-                ephemeral: true,
+                flags: MessageFlags.Ephemeral,
             });
         }
     }
