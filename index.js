@@ -75,7 +75,7 @@ client.on('interactionCreate', async (interaction) => {
             const reversed = target.content.split('').reverse().join('');
             await interaction.reply({
                 content: reversed,
-                //                flags: MessageFlags.Ephemeral,
+                // flags: MessageFlags.Ephemeral,
             });
         }
     }

@@ -16,16 +16,24 @@ const commands = [
     ...everywhere,
     name: '8ball',
     description: 'Answers your question.',
+    options: [
+      {
+        name: 'question',
+        description: 'Whats your question?',
+        type: 3,
+        required: true,
+      }
+    ]
   },
   {
-  ...everywhere,
-  name: 'Get User Info',
-  type: ApplicationCommandType.User,
+    ...everywhere,
+    name: 'Get User Info',
+    type: ApplicationCommandType.User,
   },
   {
-  ...everywhere,
-  name: 'Reverse Message',
-  type: ApplicationCommandType.Message,
+    ...everywhere,
+    name: 'Reverse Message',
+    type: ApplicationCommandType.Message,
   }
 ];
 
