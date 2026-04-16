@@ -43,7 +43,7 @@ client.on('messageCreate', (message) => {
         const rand = Math.floor(Math.random() * options.length);
         message.channel.send(options[rand]);
     }
-    
+
     if (message.content.startsWith('!8ball ')) {
         const rand = Math.floor(Math.random() * eightBallAnswers.length);
         message.channel.send(eightBallAnswers[rand]);
@@ -52,9 +52,13 @@ client.on('messageCreate', (message) => {
 
 client.on('interactionCreate', async (interaction) => {
     if (interaction.isChatInputCommand()) {
-        // your slash commands
         if (interaction.commandName === 'ping') {
             await interaction.reply('Pong!');
+        }
+
+        if (interaction.commandName === '8ball') {
+            const rand = Math.floor(Math.random() * eightBallAnswers.length);
+            await interaction.reply(eightBallAnswers[rand]);
         }
     }
 
@@ -71,7 +75,7 @@ client.on('interactionCreate', async (interaction) => {
             const reversed = target.content.split('').reverse().join('');
             await interaction.reply({
                 content: reversed,
-//                flags: MessageFlags.Ephemeral,
+                //                flags: MessageFlags.Ephemeral,
             });
         }
     }

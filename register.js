@@ -13,6 +13,11 @@ const commands = [
     description: 'Replies with pong!',
   },
   {
+    ...everywhere,
+    name: '8ball',
+    description: 'Answers your question.',
+  },
+  {
   ...everywhere,
   name: 'Get User Info',
   type: ApplicationCommandType.User,
