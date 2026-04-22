@@ -80,7 +80,7 @@ client.on('interactionCreate', async (interaction) => {
             await interaction.reply(eightBallAnswers[rand]);
         }
         if (interaction.commandName === 'hello') {
-            await interaction.reply(`Hello ${target.tag}.`);
+            await interaction.reply(`Hello ${interaction.targetUser.tag}.`);
         }
     }
 
