@@ -79,6 +79,9 @@ client.on('interactionCreate', async (interaction) => {
             const rand = Math.floor(Math.random() * eightBallAnswers.length);
             await interaction.reply(eightBallAnswers[rand]);
         }
+        if (interaction.commandName === 'hello') {
+            await interaction.reply(`Hello ${target.tag}.`);
+        }
     }
 
     if (interaction.isUserContextMenuCommand()) {

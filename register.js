@@ -14,6 +14,11 @@ const commands = [
   },
   {
     ...everywhere,
+    name: 'hello',
+    description: 'Says hello to you.',
+  },
+  {
+    ...everywhere,
     name: '8ball',
     description: 'Answers your question.',
     options: [
