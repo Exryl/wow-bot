@@ -9,30 +9,6 @@ const client = new Client({
     ]
 });
 
-const badWords = [
-    'nigger', 'niggers', 'nigga', 'niggas',
-    'faggot', 'faggots', 'fag', 'fags',
-    'kike', 'kikes',
-    'chink', 'chinks',
-    'spic', 'spics',
-    'wetback', 'wetbacks',
-    'tranny', 'trannies',
-    'retard', 'retards',
-    'cunt', 'cunts',
-    'dyke', 'dykes',
-    'cracker', 'crackers',
-    'raghead', 'ragheads',
-    'towelhead', 'towelheads',
-    'gook', 'gooks',
-    'beaner', 'beaners',
-    'zipperhead',
-];
-
-const containsBadWords = (text) => {
-    const lower = text.toLowerCase();
-    return badWords.some(word => lower.includes(word));
-};
-
 const eightBallAnswers = [
     "It is certain.", "It is decidedly so.", "Without a doubt.",
     "Yes — definitely.", "You may rely on it.", "As I see it, yes.",
@@ -111,14 +87,6 @@ client.on('interactionCreate', async (interaction) => {
         }
 
         const reversed = target.content.split('').reverse().join('');
-
-        if (containsBadWords(reversed)) {
-            await interaction.reply({
-                content: 'That message contains bad words!',
-                flags: MessageFlags.Ephemeral,
-            });
-            return;
-        }
 
         await interaction.reply(reversed);
     }
