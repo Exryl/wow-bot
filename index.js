@@ -56,7 +56,7 @@ client.on('interactionCreate', async (interaction) => {
             await interaction.reply(eightBallAnswers[rand]);
         }
         if (interaction.commandName === 'hello') {
-            await interaction.reply(`Hello ${interaction.user.username}!`);
+            await interaction.reply(`Hello ${interaction.user.id}!`);
         }
     }
 
