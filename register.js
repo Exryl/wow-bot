@@ -1,5 +1,5 @@
-require('dotenv').config();
-const { REST, Routes, ApplicationCommandType } = require('discord.js');
+require("dotenv").config();
+const { REST, Routes, ApplicationCommandType } = require("discord.js");
 
 const everywhere = {
   integration_types: [0, 1],
@@ -9,44 +9,48 @@ const everywhere = {
 const commands = [
   {
     ...everywhere,
-    name: 'ping',
-    description: 'Replies with pong!',
+    name: "ping",
+    description: "Replies with pong!",
   },
   {
     ...everywhere,
-    name: 'hello',
-    description: 'Says hello to you.',
+    name: "hello",
+    description: "Says hello to you.",
   },
   {
     ...everywhere,
-    name: '8ball',
-    description: 'Answers your question.',
+    name: "website",
+    description: "Sends a link to my website.",
+  },
+  {
+    ...everywhere,
+    name: "8ball",
+    description: "Answers your question.",
     options: [
       {
-        name: 'question',
-        description: 'Whats your question?',
+        name: "question",
+        description: "Whats your question?",
         type: 3,
         required: true,
-      }
-    ]
+      },
+    ],
   },
   {
     ...everywhere,
-    name: 'Get User Info',
+    name: "Get User Info",
     type: ApplicationCommandType.User,
   },
   {
     ...everywhere,
-    name: 'Reverse Message',
+    name: "Reverse Message",
     type: ApplicationCommandType.Message,
-  }
+  },
 ];
 
 const rest = new REST().setToken(process.env.TOKEN);
 
-rest.put(
-  Routes.applicationCommands(process.env.CLIENT_ID),
-  { body: commands }
-).then(() => {
-  console.log('Commands registered!');
-});
+rest
+  .put(Routes.applicationCommands(process.env.CLIENT_ID), { body: commands })
+  .then(() => {
+    console.log("Commands registered!");
+  });
